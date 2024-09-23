@@ -51,14 +51,14 @@ Configure Azure Load Balancer or Application Gateway to manage traffic between t
 The ghe-restore command is part of the GitHub backup utils. Please use [this](https://github.com/github/backup-utils/blob/master/docs/README.md) documentation as a reference.
 
 1. Prepare the Environment:  
-Log into the GitHub Enterprise server where you want to restore the repository.
+Log into the GitHub Enterprise server vm where you want to restore the repository.
 Ensure you have the necessary permissions to perform the restore operation.
 
 2. Stop Services (if necessary):  
 If you are restoring a live instance, it’s a good practice to stop the GitHub services to prevent data inconsistencies.
 
-3. Locate the Backup File:   
-Identify the backup file you want to restore. Backup files are usually named with a timestamp and might look like ```ghe-backup-YYYY-MM-DD.tar.gz```.
+3. Locate/Create the Backup File:   
+Identify the backup file you want to restore. Backup files are usually named with a timestamp and might look like ```ghe-backup-YYYY-MM-DD.tar.gz``` or create the backup with the ```ghe-backup``` command.
 
 4. Run the Restore Command:  
 Use the ghe-restore command to initiate the restore process. The basic syntax is:
