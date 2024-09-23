@@ -41,7 +41,7 @@ Use an Azure SQL Database or Azure Managed Instance for HA database needs. Ensur
 Set up database replication as per GitHub’s guidelines for HA configurations.
 
 4. Data Replication:  
-Use the ghes-georeplica command to configure geo-replication between the primary and secondary instances.
+Use the ghe-repl commands to configure geo-replication between the primary and secondary instances.
 Set up a secure connection (VPN or Azure ExpressRoute) between regions for data replication.
 
 5. Load Balancer:  
