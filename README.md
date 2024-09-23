@@ -55,10 +55,7 @@ Log into the GitHub Enterprise server where you want to restore the repository.
 Ensure you have the necessary permissions to perform the restore operation.
 
 2. Stop Services (if necessary):  
-If you are restoring a live instance, it’s a good practice to stop the GitHub services to prevent data inconsistencies. Use:
-```
-ghe-service stop
-```
+If you are restoring a live instance, it’s a good practice to stop the GitHub services to prevent data inconsistencies.
 
 3. Locate the Backup File:   
 Identify the backup file you want to restore. Backup files are usually named with a timestamp and might look like ```ghe-backup-YYYY-MM-DD.tar.gz```.
@@ -74,7 +71,4 @@ ghe-restore /path/to/ghe-backup-YYYY-MM-DD.tar.gz
 ```
 
 5. Start Services:  
-If you stopped the GitHub services, restart them using:
-```
-ghe-service start
-```
+If you stopped the GitHub services, restart them.
