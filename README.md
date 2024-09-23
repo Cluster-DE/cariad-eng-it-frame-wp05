@@ -26,8 +26,26 @@ The deployment of the GitHub Enterprise Server should be standardized and fully 
 Once deployed, these test environments can be utilized with a variety of standard testing tools and frameworks. One excellent choice for test automation is Playwright. This framework allows for comprehensive testing of web applications across multiple browsers, providing robust support for asynchronous operations. Playwright not only enables the automation of test cases but also allows for the reproduction of test steps consistently, enhancing the reliability of the testing process. Additionally, it offers features like parallel execution and built-in support for debugging, making it a versatile tool in any testing toolkit.
 
 
-# 4.
+# 4. Georeplica Setup
+The georeplica setup of the GitHub Enterprise server should be setup according to the [documentation](https://docs.github.com/en/enterprise-server@3.10/admin/monitoring-and-managing-your-instance/configuring-high-availability/creating-a-high-availability-replica#creating-geo-replication-replicas). 
 
+1. Create Virtual Machines:  
+Provision multiple Azure VMs in different regions for the primary and secondary GitHub Enterprise Server instances.
+
+2. Install and Configure GHES:  
+Install GitHub Enterprise on each VM. Follow GitHub’s installation documentation.
+Configure the primary instance first, then replicate settings to the secondary instance.
+
+3. Database Configuration:  
+Use an Azure SQL Database or Azure Managed Instance for HA database needs. Ensure both instances can access the database.
+Set up database replication as per GitHub’s guidelines for HA configurations.
+
+4. Data Replication:  
+Use the ghes-georeplica command to configure geo-replication between the primary and secondary instances.
+Set up a secure connection (VPN or Azure ExpressRoute) between regions for data replication.
+
+5. Load Balancer:  
+Configure Azure Load Balancer or Application Gateway to manage traffic between the instances and ensure failover capabilities.
 
 # 5. Repository Restore
 The ghe-restore command is part of the GitHub backup utils. Please use [this](https://github.com/github/backup-utils/blob/master/docs/README.md) documentation as a reference.
