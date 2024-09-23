@@ -69,9 +69,9 @@ Use the ghe-restore command to initiate the restore process. The basic syntax is
 ghe-restore <path-to-backup-file>
 ```
 Example:
-'''
+```
 ghe-restore /path/to/ghe-backup-YYYY-MM-DD.tar.gz
-'''
+```
 
 5. Start Services:  
 If you stopped the GitHub services, restart them using:
