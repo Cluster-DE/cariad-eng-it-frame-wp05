@@ -21,6 +21,10 @@ For example, a serverless Azure Function can be used to process these events and
 ![](/audit_log_stream.drawio.png)
 
 # 3.
+The deployment of the GitHub Enterprise Server should be standardized and fully automated, utilizing pipelines, scripts, and Infrastructure as Code (IaC). This approach ensures that new test environments can be provisioned at any time with minimal effort.
+
+Once deployed, these test environments can be utilized with a variety of standard testing tools and frameworks. One excellent choice for test automation is Playwright. This framework allows for comprehensive testing of web applications across multiple browsers, providing robust support for asynchronous operations. Playwright not only enables the automation of test cases but also allows for the reproduction of test steps consistently, enhancing the reliability of the testing process. Additionally, it offers features like parallel execution and built-in support for debugging, making it a versatile tool in any testing toolkit.
+
 
 # 4.
 
