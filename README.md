@@ -3,7 +3,7 @@ A proper deployment of a GitHub Enterprise Server, including the implementation 
 # 1. Primary and Replika Management
 An individual implementation of a status check and failover automatization is usually not needed, because the HA mode implements all these functions. 
 
-In HA mode, data replication occurs in real-time between the primary and secondary nodes, using a shared external database and storage backend. The primary node continuously updates the secondaries to ensure data consistency, enabling seamless failover when necessary. GitHub Enterprise Server uses a highly available, external storage solution (like NFS or object storage) and an external database (e.g., PostgreSQL) to facilitate this.
+In [HA mode](https://docs.github.com/en/enterprise-server@3.10/admin/monitoring-and-managing-your-instance/configuring-high-availability/about-high-availability-configuration), data replication occurs in real-time between the primary and secondary nodes, using a shared external database and storage backend. The primary node continuously updates the secondaries to ensure data consistency, enabling seamless failover when necessary. GitHub Enterprise Server uses a highly available, external storage solution (like NFS or object storage) and an external database (e.g., PostgreSQL) to facilitate this.
 
 The failover process in GitHub Enterprise Server HA mode is designed to occur automatically, ensuring that services remain available without manual intervention. Here’s how it works:
 1.	Health Monitoring: GitHub Enterprise Server continuously monitors the health and availability of the primary instance through built-in health checks. It checks for signs of failure, such as loss of connectivity, hardware issues, or application errors.
@@ -14,7 +14,7 @@ The failover process in GitHub Enterprise Server HA mode is designed to occur au
     - Synchronization Continuation: The remaining nodes are resynchronized to reflect the latest state of the new primary, ensuring data consistency across all instances.
 
 # 2. User Alerting System
-To create an alert when a user adds a private email address in GitHub Enterprise Server, we can leverage the platform's audit log events. These audit logs can be streamed and, within an Azure-based environment, captured using Azure Event Hub. Once the audit log events are ingested into the Event Hub, custom logic can be implemented to define actions for specific events.
+To create an alert when a user adds a private email address in GitHub Enterprise Server, we can leverage the platform's [audit log events](https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#user_email). These audit logs can be streamed and, within an Azure-based environment, captured using Azure Event Hub. Once the audit log events are ingested into the Event Hub, custom logic can be implemented to define actions for specific events.
 
 For example, a serverless Azure Function can be used to process these events and log them into a Log Analytics Workspace. From there, you can utilize Azure's standard alerting and monitoring capabilities, such as Application Insights and Azure Alerts, to set up notifications and monitor the desired activities effectively.
 
