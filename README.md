@@ -3,6 +3,8 @@ A proper deployment of a GitHub Enterprise Server, including the implementation 
 # 1. Primary and Replika Management
 An individual implementation of a status check and failover automatization is usually not needed, because the HA mode implements all these functions. 
 
+The deployment process for GitHub Enterprise Server will be fully automated to ensure efficiency and consistency. All required Azure resources, including virtual machines, storage accounts, databases, and networking components, will be provisioned using Terraform, which allows for scalable and repeatable infrastructure management. Network configurations and other system settings will be aligned with the existing DevOps architecture using Ansible, ensuring seamless integration and adherence to best practices for security and performance. This approach not only streamlines deployment but also enhances maintainability and reduces the risk of manual configuration errors.
+
 In [HA mode](https://docs.github.com/en/enterprise-server@3.10/admin/monitoring-and-managing-your-instance/configuring-high-availability/about-high-availability-configuration), data replication occurs in real-time between the primary and secondary nodes, using a shared external database and storage backend. The primary node continuously updates the secondaries to ensure data consistency, enabling seamless failover when necessary. GitHub Enterprise Server uses a highly available, external storage solution (like NFS or object storage) and an external database (e.g., PostgreSQL) to facilitate this.
 
 The failover process in GitHub Enterprise Server HA mode is designed to occur automatically, ensuring that services remain available without manual intervention. Here’s how it works:
